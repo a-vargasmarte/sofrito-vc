@@ -5,10 +5,17 @@
 
 .figcaption {
   font-size: 12px;
+  max-width: 300px;
 }
 
 .figure {
   margin: 0;
+}
+
+@media screen and (min-width: 800px) {
+  .wideFigure {
+    padding-left: 35%;
+  }
 }
 
 .published {
@@ -18,6 +25,11 @@
 
 .blogTitle {
   margin: 0;
+}
+
+.blogMain {
+  max-width: 800px;
+  margin-top: 50px;
 }
 
 .sectionTitle {

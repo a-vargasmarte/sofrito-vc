@@ -2,7 +2,7 @@ import blogStyles from "../styles/Blog.module.css";
 import Image from "next/image";
 const blog = () => {
   return (
-    <div>
+    <div className={blogStyles.blogMain}>
       <section className={blogStyles.sectionTitle}>
         <h2 className={blogStyles.blogTitle}>3 Good-to-haves in the pantry</h2>
         <span className={blogStyles.published}>
@@ -10,20 +10,22 @@ const blog = () => {
         </span>
         <br />
       </section>
-      <figure className={blogStyles.figure}>
-        <Image
-          className={blogStyles.image}
-          src="/wide-pantry-items.jpeg"
-          width={300}
-          height={225}
-          layout="fixed"
-          alt={`A display of a jar of dijon mustard, a jar of hot and sweet picked jalapeño peppers, and a can of chipotle peppers in adobo sauce`}
-        />
-        <figcaption className={blogStyles.figcaption}>
-          Dijon mustard, hot and sweet picked jalapeño peppers, and chipotle
-          peppers in adobo sauce{" "}
-        </figcaption>
-      </figure>
+      <div className={blogStyles.wideFigure}>
+        <figure className={blogStyles.figure}>
+          <Image
+            className={blogStyles.image}
+            src="/wide-pantry-items.jpeg"
+            width={300}
+            height={225}
+            layout="fixed"
+            alt={`A display of a jar of dijon mustard, a jar of hot and sweet picked jalapeño peppers, and a can of chipotle peppers in adobo sauce`}
+          />
+          <figcaption className={blogStyles.figcaption}>
+            Dijon mustard, hot and sweet picked jalapeño peppers, and chipotle
+            peppers in adobo sauce{" "}
+          </figcaption>
+        </figure>
+      </div>
       <p className={blogStyles.p}>
         During the pandemic, I’ve come to further appreciate some special pantry
         items. These give me a foundational flavor spectrum and help leverage my
