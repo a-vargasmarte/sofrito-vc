@@ -1,0 +1,29 @@
+.p {
+  font-size: 18px;
+  line-height: 1.5em;
+}
+
+.figcaption {
+  font-size: 12px;
+}
+
+.figure {
+  margin: 0;
+}
+
+.published {
+  font-size: 12px;
+  opacity: 30%;
+}
+
+.blogTitle {
+  margin: 0;
+}
+
+.sectionTitle {
+  margin-bottom: 2em;
+}
+
+.image {
+  border: 2px solid black !important;
+}
