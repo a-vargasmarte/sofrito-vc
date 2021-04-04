@@ -1,6 +1,7 @@
 import blogStyles from "../styles/Blog.module.css";
 import Image from "next/image";
-const blog = () => {
+const blog = articles => {
+  console.log(articles);
   return (
     // <div className={blogStyles.blogMain}>
     //   <section className={blogStyles.sectionTitle}>
@@ -307,3 +308,17 @@ const blog = () => {
 };
 
 export default blog;
+
+export const getStaticProps = async () => {
+  const server =
+    process.env.NODE_ENV == "production"
+      ? "https://sofrito.vercel.app/api/hello"
+      : "http://localhost:3000/api/hello";
+
+  const res = await fetch(server);
+  const articles = await res.json();
+
+  return {
+    props: { articles }
+  };
+};
