@@ -1,6 +1,8 @@
 import Head from "next/head";
+import PostList from "../components/PostList";
 import homeStyles from "../styles/Home.module.css";
-export default function Home({ articles }) {
+import layoutStyles from "../styles/Layout.module.css";
+export default function Home({ posts }) {
   return (
     <div>
       <Head>
@@ -14,19 +16,20 @@ export default function Home({ articles }) {
         <span className={homeStyles.title}>Sofrito</span>
       </h1>
       <p className={homeStyles.description}>Cooking info, tips, and tricks!</p>
+      <h2>Previous Posts:</h2>
+      <PostList posts={posts} />
     </div>
   );
 }
 
 export const getStaticProps = async () => {
   const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?_limit=6`
+    `https://v1.nocodeapi.com/avargasmarte/airtable/poAUAbVtgKToonbT?tableName=Posts`
   );
-  const articles = await res.json();
+
+  const posts = await res.json();
 
   return {
-    props: {
-      articles
-    }
+    props: { posts }
   };
 };
