@@ -5,6 +5,7 @@ import Image from "next/image";
 import { server } from "../../../config";
 
 const post = ({ data }) => {
+  console.log(data.conclusion);
   return (
     <>
       <div className={blogStyles.blogMain}>
@@ -48,6 +49,7 @@ const post = ({ data }) => {
             </section>
           </div>
         ))}
+        <p className={blogStyles.p}>{data.conclusion}</p>
       </div>
     </>
   );
