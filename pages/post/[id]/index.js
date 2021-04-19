@@ -1,9 +1,7 @@
-import { useRouter } from "next/router";
 import getPosts from "../../../lib/getPosts";
 import getPostById from "../../../lib/getPostById";
 import blogStyles from "../../../styles/Blog.module.css";
 import Image from "next/image";
-import { server } from "../../../config";
 
 const post = ({ data }) => {
   return (

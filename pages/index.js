@@ -2,7 +2,6 @@ import Head from "next/head";
 import PostList from "../components/PostList";
 import homeStyles from "../styles/Home.module.css";
 import layoutStyles from "../styles/Layout.module.css";
-import { server } from "../config";
 import getPosts from "../lib/getPosts";
 export default function Home({ posts }) {
   return (
