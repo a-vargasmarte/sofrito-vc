@@ -5,7 +5,7 @@ const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
 
 const table = base("Posts");
 
-export default (id) => {
+export default async id => {
   const record = await table.find(id);
 
   res.statusCode = 200;
