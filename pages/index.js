@@ -3,6 +3,7 @@ import PostList from "../components/PostList";
 import homeStyles from "../styles/Home.module.css";
 import layoutStyles from "../styles/Layout.module.css";
 import { server } from "../config";
+import getPosts from "../lib/getPosts";
 export default function Home({ posts }) {
   return (
     <div>
@@ -24,8 +25,8 @@ export default function Home({ posts }) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch(`${server}/api/getPosts`);
-  const posts = await res.json();
+  const posts = await getPosts();
+
   return {
     props: { posts }
   };

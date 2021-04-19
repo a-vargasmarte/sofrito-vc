@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import getPosts from "../../../lib/getPosts";
 import getPostById from "../../../lib/getPostById";
 import blogStyles from "../../../styles/Blog.module.css";
 import Image from "next/image";
@@ -68,9 +69,8 @@ export async function getStaticProps({ params }) {
 }
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`${server}/api/getPosts`);
-  const post = await res.json();
-  const post_ids = post.map(post => post.rec_id);
+  const posts = await getPosts();
+  const post_ids = posts.map(post => post.rec_id);
   const paths = post_ids.map(id => ({ params: { id: id.toString() } }));
 
   return {
