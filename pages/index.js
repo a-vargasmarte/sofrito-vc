@@ -2,6 +2,7 @@ import Head from "next/head";
 import PostList from "../components/PostList";
 import homeStyles from "../styles/Home.module.css";
 import layoutStyles from "../styles/Layout.module.css";
+import { server } from "../config";
 export default function Home({ posts }) {
   return (
     <div>
@@ -23,12 +24,8 @@ export default function Home({ posts }) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch(
-    `https://v1.nocodeapi.com/avargasmarte/airtable/poAUAbVtgKToonbT?tableName=Posts`
-  );
-
+  const res = await fetch(`${server}/api/getPosts`);
   const posts = await res.json();
-
   return {
     props: { posts }
   };

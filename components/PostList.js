@@ -5,8 +5,8 @@ export default function PostList({ posts }) {
   return (
     <>
       <div>
-        {posts.records.map((post, i) => (
-          <Post post={post} />
+        {posts.map((post, i) => (
+          <Post key={`post-${i}`} post={post} />
         ))}
       </div>
     </>
