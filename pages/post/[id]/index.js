@@ -19,29 +19,30 @@ const post = ({ data }) => {
           <div>
             <section>
               <h3>{section.heading}</h3>
-              {section.source && (
+              {section.paragraphs && (
                 <>
-                  <figure className={blogStyles.figure}>
-                    <Image
-                      className={blogStyles.image}
-                      width={300}
-                      height={225}
-                      layout="fixed"
-                      alt={section.alt}
-                      src={`${section.source}`}
-                    />
-                    <figcaption className={blogStyles.figcaption}>
-                      {section.caption}
-                    </figcaption>
-                  </figure>
-                  {section.paragraphs &&
-                    section.paragraphs.map((para, i) => {
-                      return (
-                        <p key={`para-${i}`} className={blogStyles.p}>
-                          {para.body}
-                        </p>
-                      );
-                    })}
+                  {section.source && (
+                    <figure className={blogStyles.figure}>
+                      <Image
+                        className={blogStyles.image}
+                        width={300}
+                        height={300}
+                        layout="responsive"
+                        alt={section.alt}
+                        src={`${section.source}`}
+                      />
+                      <figcaption className={blogStyles.figcaption}>
+                        {section.caption}
+                      </figcaption>
+                    </figure>
+                  )}
+                  {section.paragraphs.map((para, i) => {
+                    return (
+                      <p key={`para-${i}`} className={blogStyles.p}>
+                        {para.body}
+                      </p>
+                    );
+                  })}
                 </>
               )}
             </section>
